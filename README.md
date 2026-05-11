@@ -20,7 +20,7 @@ A modern, production-ready weighbridge web application UI/UX for desktop-first o
 
 ## Getting Started
 
-Clone the repo and open `/home/runner/work/weighbridgeSystem/weighbridgeSystem/index.html` in a browser.
+Clone the repo and open `index.html` in a browser.
 
 ## API Placeholders
 
@@ -42,4 +42,4 @@ Clone the repo and open `/home/runner/work/weighbridgeSystem/weighbridgeSystem/i
 
 ## Sample JSON Models
 
-See `/home/runner/work/weighbridgeSystem/weighbridgeSystem/mock-data.json` for sample structures for live scale response, ticket, vehicle, duty roster, and audit event.
+See `mock-data.json` for sample structures for live scale response, ticket, vehicle, duty roster, and audit event.
