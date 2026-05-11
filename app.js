@@ -4,7 +4,44 @@ POST /tickets, PATCH /tickets/:id, POST /tickets/:id/complete, POST /tickets/:id
 GET /tickets, GET /tickets/:id, GET /tickets/:id/audit-trail, GET /duty-roster/current,
 GET /operators/on-duty, POST /shift-handover, GET /reports/...
 */
-const state={role:"operator",duty:{operator:"Operator A",shift:"Morning",supervisor:"Supervisor B",bridge:"B1"},live:{weight:0,stable:false,connected:true,vehicle:"ABC123"},ticket:{id:"WB-0001",status:"draft",gross:0,tare:0,net:0,vehicle:"ABC123",driver:"L. Mbatha",customer:"Acme Cement",material:"Fly Ash",order:"PO-49021"},vehicles:[{reg:"ABC123",type:"Tipper",tare:8200,verified:"2026-05-02",compliance:"Valid"},{reg:"ZXY991",type:"Flatbed",tare:7400,verified:"2026-03-12",compliance:"Tare stale"},{reg:"LMN445",type:"Tanker",tare:9300,verified:"2026-05-01",compliance:"Permit check"}],tickets:[{ticket:"WB-0001",vehicle:"ABC123",driver:"L. Mbatha",customer:"Acme Cement",product:"Fly Ash",operator:"Operator A",shift:"Morning",status:"weighed-in",time:"2026-05-11T10:30:00Z"},{ticket:"WB-0002",vehicle:"ZXY991",driver:"R. Ndlovu",customer:"Brix Mills",product:"Coal",operator:"Operator A",shift:"Morning",status:"on-hold",time:"2026-05-11T11:05:00Z"}],audit:[],overrides:[],exceptions:[{ticket:"WB-0002",issue:"Manual tare used",by:"Operator A",reason:"Scale unstable >60s",status:"Pending supervisor"}],reports:["Daily bridge activity","Operator activity report","Shift-wise transaction report","Vehicle history","Exception/override report","Void/cancelled ticket report","Weight variance / anomaly report"]};
+const state = {
+  role: "operator",
+  duty: { operator: "Operator A", shift: "Morning", supervisor: "Supervisor B", bridge: "B1" },
+  live: { weight: 0, stable: false, connected: true, vehicle: "ABC123" },
+  ticket: {
+    id: "WB-0001",
+    status: "draft",
+    gross: 0,
+    tare: 0,
+    net: 0,
+    vehicle: "ABC123",
+    driver: "L. Mbatha",
+    customer: "Acme Cement",
+    material: "Fly Ash",
+    order: "PO-49021"
+  },
+  vehicles: [
+    { reg: "ABC123", type: "Tipper", tare: 8200, verified: "2026-05-02", compliance: "Valid" },
+    { reg: "ZXY991", type: "Flatbed", tare: 7400, verified: "2026-03-12", compliance: "Tare stale" },
+    { reg: "LMN445", type: "Tanker", tare: 9300, verified: "2026-05-01", compliance: "Permit check" }
+  ],
+  tickets: [
+    { ticket: "WB-0001", vehicle: "ABC123", driver: "L. Mbatha", customer: "Acme Cement", product: "Fly Ash", operator: "Operator A", shift: "Morning", status: "weighed-in", time: "2026-05-11T10:30:00Z" },
+    { ticket: "WB-0002", vehicle: "ZXY991", driver: "R. Ndlovu", customer: "Brix Mills", product: "Coal", operator: "Operator A", shift: "Morning", status: "on-hold", time: "2026-05-11T11:05:00Z" }
+  ],
+  audit: [],
+  overrides: [],
+  exceptions: [{ ticket: "WB-0002", issue: "Manual tare used", by: "Operator A", reason: "Scale unstable >60s", status: "Pending supervisor" }],
+  reports: [
+    "Daily bridge activity",
+    "Operator activity report",
+    "Shift-wise transaction report",
+    "Vehicle history",
+    "Exception/override report",
+    "Void/cancelled ticket report",
+    "Weight variance / anomaly report"
+  ]
+};
 const byId=(id)=>document.getElementById(id);
 const audit=(text)=>state.audit.unshift({text,at:new Date().toISOString(),duty:{...state.duty}});
 const toast=(msg,error)=>{const t=byId("toast");t.textContent=msg;t.style.background=error?"#8f1e15":"#132531";t.classList.remove("hidden");setTimeout(()=>t.classList.add("hidden"),2200);};
