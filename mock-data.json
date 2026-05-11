@@ -1,0 +1,89 @@
+{
+  "liveScaleResponse": {
+    "bridgeId": "B1",
+    "weight": 24380,
+    "unit": "kg",
+    "stable": true,
+    "connected": true,
+    "vehicleReg": "ABC123"
+  },
+  "ticket": {
+    "ticketNo": "WB-0001",
+    "dateTimeIn": "2026-05-11T10:30:00Z",
+    "dateTimeOut": "2026-05-11T12:05:00Z",
+    "vehicleRegistration": "ABC123",
+    "trailerRegistration": "TRL-778",
+    "driverName": "L. Mbatha",
+    "driverId": "DL-20031",
+    "transporter": "North Haulage",
+    "customer": "Acme Cement",
+    "supplierSource": "Quarry Unit 4",
+    "destination": "Plant 2",
+    "productMaterial": "Fly Ash",
+    "productCode": "MAT-FA-11",
+    "orderJobPoReference": "PO-49021",
+    "grossWeight": 24380,
+    "tareWeight": 8200,
+    "netWeight": 16180,
+    "unit": "kg",
+    "storedTare": true,
+    "bridgeId": "B1",
+    "direction": "inbound",
+    "operator": "Operator A",
+    "shift": "Morning",
+    "remarks": "Second weight pending",
+    "overrideReason": "",
+    "status": "weighed-in",
+    "auditReferences": [
+      "AUD-1001",
+      "AUD-1002"
+    ],
+    "attachmentsImages": [
+      "camera://entry-001.jpg",
+      "camera://exit-001.jpg"
+    ],
+    "complianceReferences": {
+      "permit": "PER-7782"
+    }
+  },
+  "vehicle": {
+    "registrationNumber": "ABC123",
+    "trailerRegistration": "TRL-778",
+    "fleetNumber": "FLT-14",
+    "vehicleType": "Tipper",
+    "transporterHaulier": "North Haulage",
+    "driverName": "L. Mbatha",
+    "driverIdOrLicense": "DL-20031",
+    "rfidTagBarcode": "RFID-778211",
+    "storedTareWeight": 8200,
+    "tareLastVerifiedDate": "2026-05-02",
+    "complianceDocuments": [
+      "PER-7782",
+      "CARRIER-APPROVED"
+    ]
+  },
+  "dutyRoster": {
+    "current": {
+      "bridge": "B1",
+      "shift": "Morning",
+      "operator": "Operator A",
+      "supervisor": "Supervisor B",
+      "securityOfficer": "Officer Z",
+      "loginTime": "2026-05-11T06:02:00Z"
+    }
+  },
+  "auditEvent": {
+    "id": "AUD-1001",
+    "ticketId": "WB-0001",
+    "timestamp": "2026-05-11T10:31:22Z",
+    "eventType": "field_change",
+    "actor": "Operator A",
+    "fieldChanges": [
+      {
+        "field": "customer",
+        "before": "",
+        "after": "Acme Cement"
+      }
+    ]
+  }
+}
