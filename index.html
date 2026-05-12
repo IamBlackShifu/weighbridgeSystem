@@ -14,7 +14,6 @@
         <div>
           <p class="eyebrow">Operations Console</p>
           <h1>Weighbridge</h1>
-          <p class="brand-copy">Clearer shift workflows for faster, safer gatehouse operations.</p>
         </div>
       </div>
 
@@ -34,7 +33,7 @@
 
       <div class="sidebar-panel">
         <span class="badge badge-soft">Shift ready</span>
-        <p>Use the larger navigation buttons to move between weigh-in, investigations, and print tasks quickly.</p>
+        <!-- <p>Use the larger navigation buttons to move between weigh-in, investigations, and print tasks quickly.</p> -->
       </div>
     </aside>
 
@@ -229,15 +228,9 @@
                 <label>Date/time in<input id="timeIn" type="datetime-local"></label>
                 <label>Date/time out<input id="timeOut" type="datetime-local"></label>
                 <label>Vehicle registration<input id="vehicleReg"></label>
-                <label>Trailer registration<input id="trailerReg"></label>
                 <label>Driver name<input id="driverName"></label>
-                <label>Driver ID<input id="driverId"></label>
-                <label>Transporter<input id="transporter"></label>
                 <label>Customer<input id="customer"></label>
-                <label>Supplier/source<input id="supplier"></label>
-                <label>Destination<input id="destination"></label>
                 <label>Product/material<input id="material"></label>
-                <label>Product code<input id="productCode"></label>
                 <label>Order/job/PO reference<input id="orderRef"></label>
 
                 <div class="form-section">Weight &amp; bridge details</div>
@@ -246,16 +239,26 @@
                 <label>Net<input id="net" type="number" readonly></label>
                 <label>Unit<select><option>kg</option><option>t</option></select></label>
                 <label>Stored tare<select id="storedTare"><option>No</option><option>Yes</option></select></label>
-                <label>Bridge ID<input id="bridgeId" value="B1"></label>
                 <label>Direction<select><option>inbound</option><option>outbound</option></select></label>
-                <label>Operator<input id="operator" value="Operator A"></label>
-                <label>Shift<input id="shift" value="Morning"></label>
-                <label>Status<select id="status"><option>draft</option><option>weighed-in</option><option>weighed-out</option><option>completed</option><option>voided</option><option>on-hold</option></select></label>
 
-                <div class="form-section">Notes &amp; approvals</div>
-                <label>Remarks<textarea></textarea></label>
-                <label>Override reason<textarea id="overrideReason" readonly placeholder="Supervisor approval required"></textarea></label>
-                <label>Attachments/images<input placeholder="camera://entry-001.jpg"></label>
+                <details class="form-details">
+                  <summary>Additional details</summary>
+                  <div class="form-details-body">
+                    <label>Bridge ID<input id="bridgeId" value="B1"></label>
+                    <label>Operator<input id="operator" value="Operator A"></label>
+                    <label>Shift<input id="shift" value="Morning"></label>
+                    <label>Status<select id="status"><option>draft</option><option>weighed-in</option><option>weighed-out</option><option>completed</option><option>voided</option><option>on-hold</option></select></label>
+                    <label>Trailer registration<input id="trailerReg"></label>
+                    <label>Driver ID<input id="driverId"></label>
+                    <label>Transporter<input id="transporter"></label>
+                    <label>Supplier/source<input id="supplier"></label>
+                    <label>Destination<input id="destination"></label>
+                    <label>Product code<input id="productCode"></label>
+                    <label>Remarks<textarea id="remarks"></textarea></label>
+                    <label>Override reason<textarea id="overrideReason" readonly placeholder="Supervisor approval required"></textarea></label>
+                    <label>Attachments/images<input id="attachments" placeholder="camera://entry-001.jpg"></label>
+                  </div>
+                </details>
               </form>
 
               <div class="action-row action-wrap">
@@ -331,8 +334,8 @@
               <input id="fCustomer" placeholder="Customer">
               <input id="fProduct" placeholder="Product">
               <input id="fOperator" placeholder="Operator">
-              <select id="fShift"><option value="">Any shift</option><option>Morning</option><option>Afternoon</option><option>Night</option></select>
-              <select id="fStatus"><option value="">Any status</option><option>draft</option><option>weighed-in</option><option>weighed-out</option><option>completed</option><option>voided</option><option>on-hold</option></select>
+              <select id="fShift" aria-label="Shift filter" title="Shift filter"><option value="">Any shift</option><option>Morning</option><option>Afternoon</option><option>Night</option></select>
+              <select id="fStatus" aria-label="Status filter" title="Status filter"><option value="">Any status</option><option>draft</option><option>weighed-in</option><option>weighed-out</option><option>completed</option><option>voided</option><option>on-hold</option></select>
             </div>
             <div class="action-row action-wrap">
               <button id="runSearch" class="btn primary">Search</button>
