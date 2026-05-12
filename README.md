@@ -9,7 +9,7 @@ A modern, production-ready weighbridge web application UI/UX for desktop-first o
 - Vehicle registry table with search
 - Ticket detail with audit timeline and prominent duty snapshot
 - Search and investigations with multi-field filters and CSV export
-- Reports, duty roster, exceptions queue, login, and print view
+- Separate login page and protected application page, plus reports, duty roster, exceptions queue, and print view
 - Permission-aware actions for operator/supervisor/admin
 - Loading and offline/error states with mock backend-ready API integration points
 
@@ -20,7 +20,7 @@ A modern, production-ready weighbridge web application UI/UX for desktop-first o
 
 ## Getting Started
 
-Clone the repo and open `index.html` in a browser.
+Open `index.html` for login, then continue to `app.html` after sign-in.
 
 ## API Placeholders
 

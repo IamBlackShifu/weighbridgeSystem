@@ -73,7 +73,42 @@ body::after{
 
 button,input,select,textarea{font:inherit}
 
-.app{display:flex;min-height:100vh;height:100vh;overflow:hidden}
+.auth-view{
+  min-height:100vh;
+  padding:24px;
+  display:grid;
+  place-items:center;
+}
+
+.auth-panel{
+  width:min(1120px,100%);
+  display:grid;
+  grid-template-columns:minmax(0,1.1fr) minmax(340px,.9fr);
+  gap:28px;
+  align-items:center;
+}
+
+.auth-brand{
+  padding:28px;
+  border-radius:28px;
+  background:linear-gradient(160deg, rgba(255,255,255,.72), rgba(255,255,255,.46));
+  border:1px solid rgba(191,208,220,.72);
+  box-shadow:var(--shadow-strong);
+}
+
+.auth-brand .brand-copy{color:var(--muted);max-width:34ch}
+
+.auth-card{position:relative;overflow:hidden}
+
+.auth-card::before{
+  content:"";
+  position:absolute;
+  inset:0 0 auto;
+  height:5px;
+  background:linear-gradient(90deg, #0f6d8a, #1c8eb1, #157347);
+}
+
+.app-shell{display:flex;min-height:100vh;height:100vh;overflow:hidden}
 
 #sidebar{
   width:280px;
@@ -205,6 +240,8 @@ header{
 main{padding:18px;overflow:auto;min-height:0}
 .screen{display:none;animation:fadeIn .28s ease}
 .screen.active{display:block}
+
+.auth-view .hero-card{margin:0}
 
 @keyframes fadeIn{
   from{opacity:0;transform:translateY(8px)}
