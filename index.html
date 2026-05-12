@@ -9,96 +9,222 @@
 <body>
   <div class="app">
     <aside id="sidebar">
-      <h1>WB</h1>
-      <button class="nav active" data-screen="login">Login</button>
-      <button class="nav" data-screen="dashboard">Dashboard</button>
-      <button class="nav" data-screen="ticket">Ticket Workspace</button>
-      <button class="nav" data-screen="detail">Ticket Detail</button>
-      <button class="nav" data-screen="vehicles">Vehicle Registry</button>
-      <button class="nav" data-screen="search">Search</button>
-      <button class="nav" data-screen="history">Vehicle History</button>
-      <button class="nav" data-screen="duty">Duty Roster</button>
-      <button class="nav" data-screen="reports">Reports</button>
-      <button class="nav" data-screen="exceptions">Exceptions</button>
-      <button class="nav" data-screen="print">Print</button>
+      <div class="brand-block">
+        <div class="brand-mark">WB</div>
+        <div>
+          <p class="eyebrow">Operations Console</p>
+          <h1>Weighbridge</h1>
+          <p class="brand-copy">Clearer shift workflows for faster, safer gatehouse operations.</p>
+        </div>
+      </div>
+
+      <nav class="nav-list" aria-label="Primary">
+        <button class="nav active" data-screen="login"><span class="nav-icon">🔐</span><span>Login</span></button>
+        <button class="nav" data-screen="dashboard"><span class="nav-icon">📊</span><span>Dashboard</span></button>
+        <button class="nav" data-screen="ticket"><span class="nav-icon">🧾</span><span>Ticket Workspace</span></button>
+        <button class="nav" data-screen="detail"><span class="nav-icon">📁</span><span>Ticket Detail</span></button>
+        <button class="nav" data-screen="vehicles"><span class="nav-icon">🚛</span><span>Vehicle Registry</span></button>
+        <button class="nav" data-screen="search"><span class="nav-icon">🔎</span><span>Search</span></button>
+        <button class="nav" data-screen="history"><span class="nav-icon">🕘</span><span>Vehicle History</span></button>
+        <button class="nav" data-screen="duty"><span class="nav-icon">👷</span><span>Duty Roster</span></button>
+        <button class="nav" data-screen="reports"><span class="nav-icon">📈</span><span>Reports</span></button>
+        <button class="nav" data-screen="exceptions"><span class="nav-icon">⚠️</span><span>Exceptions</span></button>
+        <button class="nav" data-screen="print"><span class="nav-icon">🖨️</span><span>Print</span></button>
+      </nav>
+
+      <div class="sidebar-panel">
+        <span class="badge badge-soft">Shift ready</span>
+        <p>Use the larger navigation buttons to move between weigh-in, investigations, and print tasks quickly.</p>
+      </div>
     </aside>
+
     <div id="main">
       <header>
-        <button id="menu">☰</button>
+        <div class="header-title">
+          <button id="menu" aria-label="Open navigation">☰</button>
+          <div>
+            <p class="eyebrow">Shift Workspace</p>
+            <h2>Bridge operations control</h2>
+          </div>
+        </div>
+
         <div class="badges">
           <span id="bridge" class="badge">Bridge B1</span>
           <span id="connection" class="badge ok">Connected</span>
           <span id="stability" class="badge warn">Waiting for stable weight</span>
         </div>
-        <div>
+
+        <div class="header-actions">
           <label for="role">Role</label>
           <select id="role"><option>operator</option><option>supervisor</option><option>admin</option></select>
           <button id="handover" class="btn">Shift handover</button>
         </div>
       </header>
+
       <main>
         <section class="screen active" id="login">
-          <article class="card">
-            <h2>Gatehouse Login</h2>
+          <article class="card hero-card login-card">
+            <div class="card-head">
+              <div>
+                <p class="eyebrow">Start shift</p>
+                <h2>Gatehouse Login</h2>
+                <p class="section-copy">Sign in, confirm your bridge, and begin a clean shift-ready workspace.</p>
+              </div>
+              <div class="hero-badges">
+                <span class="badge ok">Operator guided</span>
+                <span class="badge">Touch friendly</span>
+              </div>
+            </div>
             <div class="grid2">
               <label>Operator<input id="loginOperator" value="Operator A"></label>
               <label>Shift<select id="loginShift"><option>Morning</option><option>Afternoon</option><option>Night</option></select></label>
               <label>Bridge<select id="loginBridge"><option>B1</option><option>B2</option></select></label>
               <label>Workstation<select><option>Gatehouse 1</option><option>Gatehouse 2</option></select></label>
             </div>
-            <button id="startSession" class="btn primary">Start Duty Session</button>
+            <div class="action-row">
+              <button id="startSession" class="btn primary">Start Duty Session</button>
+            </div>
           </article>
         </section>
 
         <section class="screen" id="dashboard">
-          <div class="kpis">
-            <article class="card"><h3>Tickets Today</h3><strong id="kpiTickets"></strong></article>
-            <article class="card"><h3>Pending Weigh-Out</h3><strong id="kpiPending"></strong></article>
-            <article class="card"><h3>Exceptions</h3><strong id="kpiExceptions"></strong></article>
-            <article class="card"><h3>Throughput</h3><strong id="kpiThroughput"></strong></article>
+          <div class="screen-head">
+            <div>
+              <p class="eyebrow">Live oversight</p>
+              <h2>Shift dashboard</h2>
+              <p class="section-copy">Track the bridge state, active vehicle flow, and your next operator actions at a glance.</p>
+            </div>
+            <div class="legend-group">
+              <span class="vehicle-tag truck">🚚 Truck</span>
+              <span class="vehicle-tag trailer">🚛 Truck + Trailer</span>
+              <span class="vehicle-tag tanker">🛢️ Tanker</span>
+            </div>
           </div>
-          <div class="grid3">
-            <article class="card">
-              <h2>Live Weight</h2>
-              <p id="weightLoading">Loading live scale...</p>
+
+          <div class="kpis">
+            <article class="card stat-card"><h3>Tickets Today</h3><strong id="kpiTickets"></strong></article>
+            <article class="card stat-card"><h3>Pending Weigh-Out</h3><strong id="kpiPending"></strong></article>
+            <article class="card stat-card"><h3>Exceptions</h3><strong id="kpiExceptions"></strong></article>
+            <article class="card stat-card"><h3>Throughput</h3><strong id="kpiThroughput"></strong></article>
+          </div>
+
+          <div class="grid3 dashboard-grid">
+            <article class="card feature-card">
+              <div class="card-head">
+                <div>
+                  <p class="eyebrow">Scale overview</p>
+                  <h2>Live Weight</h2>
+                </div>
+                <span class="badge badge-soft">Live feed</span>
+              </div>
+              <p id="weightLoading" class="support-note">Loading live scale...</p>
               <div id="liveWeight" class="weight">--</div>
-              <p>Current vehicle: <strong id="liveVehicle">--</strong></p>
-              <p>Scale state: <span id="liveState" class="badge warn">Unstable</span></p>
-              <p id="liveCapture">Second weight pending</p>
+              <div class="status-list">
+                <div class="status-item">
+                  <span class="status-label">Current vehicle</span>
+                  <strong id="liveVehicle">--</strong>
+                </div>
+                <div class="status-item">
+                  <span class="status-label">Scale state</span>
+                  <span id="liveState" class="badge warn">Unstable</span>
+                </div>
+              </div>
+              <p id="liveCapture" class="support-note emphasis-note">Second weight pending</p>
             </article>
-            <article class="card">
-              <h2>Camera / ANPR</h2>
-              <div class="camera">Entry/Exit snapshot zone</div>
-              <small>ANPR placeholder for auto plate capture.</small>
+
+            <article class="card feature-card">
+              <div class="card-head">
+                <div>
+                  <p class="eyebrow">Vehicle alerts</p>
+                  <h2>Type guide</h2>
+                </div>
+                <span class="badge warn">Check before capture</span>
+              </div>
+              <div class="vehicle-guide">
+                <article class="vehicle-guide-card truck">
+                  <strong>🚚 Truck</strong>
+                  <span>Single vehicle flow. Confirm tare and load destination.</span>
+                </article>
+                <article class="vehicle-guide-card trailer">
+                  <strong>🚛 Truck + Trailer</strong>
+                  <span>Verify both registrations before weighing and printing.</span>
+                </article>
+                <article class="vehicle-guide-card tanker">
+                  <strong>🛢️ Tanker</strong>
+                  <span>Highlight product checks, seals, and permit compliance.</span>
+                </article>
+              </div>
+              <div class="alert-stack">
+                <p class="alert-note warn-tone">Use trailer registration fields for articulated combinations.</p>
+                <p class="alert-note danger-tone">Escalate exceptions when tare or compliance details are unclear.</p>
+              </div>
             </article>
-            <article class="card">
-              <h2>Quick Actions</h2>
-              <div class="actions">
-                <button class="btn" data-screen="ticket">New Ticket</button>
-                <button class="btn" id="weighIn">Weigh In</button>
-                <button class="btn" id="weighOut">Weigh Out</button>
-                <button class="btn" data-screen="vehicles">Search Vehicle</button>
-                <button class="btn warn" id="manualHold">Manual Hold</button>
-                <button class="btn" data-screen="print">Print Ticket</button>
-                <button class="btn danger" id="flagException">Flag Exception</button>
+
+            <article class="card feature-card">
+              <div class="card-head">
+                <div>
+                  <p class="eyebrow">Quick actions</p>
+                  <h2>Operator shortcuts</h2>
+                </div>
+                <span class="badge ok">Large touch targets</span>
+              </div>
+              <div class="actions touch-actions">
+                <button class="btn primary" data-screen="ticket">🧾 New Ticket</button>
+                <button class="btn" id="weighIn">⬇️ Weigh In</button>
+                <button class="btn" id="weighOut">⬆️ Weigh Out</button>
+                <button class="btn" data-screen="vehicles">🚚 Search Vehicle</button>
+                <button class="btn warn" id="manualHold">⏸ Manual Hold</button>
+                <button class="btn" data-screen="print">🖨 Print Ticket</button>
+                <button class="btn danger" id="flagException">⚠️ Flag Exception</button>
               </div>
             </article>
           </div>
         </section>
 
         <section class="screen" id="ticket">
-          <div class="grid2">
-            <article class="card">
-              <h2>Live Capture</h2>
+          <div class="screen-head">
+            <div>
+              <p class="eyebrow">Capture workflow</p>
+              <h2>Ticket workspace</h2>
+              <p class="section-copy">Use the guided order below to record vehicle details, capture weights, and complete the ticket cleanly.</p>
+            </div>
+            <div class="legend-group">
+              <span class="badge">Vehicle first</span>
+              <span class="badge">Capture when stable</span>
+              <span class="badge ok">Save before complete</span>
+            </div>
+          </div>
+
+          <div class="grid2 ticket-layout">
+            <article class="card feature-card">
+              <div class="card-head">
+                <div>
+                  <p class="eyebrow">Scale capture</p>
+                  <h2>Live Capture</h2>
+                </div>
+                <span class="badge badge-soft">Ready when stable</span>
+              </div>
               <div id="ticketLiveWeight" class="weight">--</div>
-              <p id="ticketLiveState">Waiting for stable weight</p>
-              <button id="captureGross" class="btn primary">Capture gross</button>
-              <button id="captureSecond" class="btn">Capture second weight</button>
+              <p id="ticketLiveState" class="support-note emphasis-note">Waiting for stable weight</p>
+              <div class="stack-actions">
+                <button id="captureGross" class="btn primary">Capture gross</button>
+                <button id="captureSecond" class="btn">Capture second weight</button>
+              </div>
             </article>
+
             <article class="card">
-              <h2>New Weigh Ticket</h2>
+              <div class="card-head">
+                <div>
+                  <p class="eyebrow">Ticket entry</p>
+                  <h2>New Weigh Ticket</h2>
+                </div>
+                <span class="badge">Keep fields concise</span>
+              </div>
+
               <p class="stepper"><span>Vehicle</span><span>Weigh In</span><span>Weigh Out</span><span>Complete</span></p>
+
               <form id="ticketForm" class="form">
+                <div class="form-section">Vehicle &amp; trip details</div>
                 <label>Ticket no<input id="ticketNo"></label>
                 <label>Date/time in<input id="timeIn" type="datetime-local"></label>
                 <label>Date/time out<input id="timeOut" type="datetime-local"></label>
@@ -113,6 +239,8 @@
                 <label>Product/material<input id="material"></label>
                 <label>Product code<input id="productCode"></label>
                 <label>Order/job/PO reference<input id="orderRef"></label>
+
+                <div class="form-section">Weight &amp; bridge details</div>
                 <label>Gross<input id="gross" type="number"></label>
                 <label>Tare<input id="tare" type="number"></label>
                 <label>Net<input id="net" type="number" readonly></label>
@@ -123,28 +251,36 @@
                 <label>Operator<input id="operator" value="Operator A"></label>
                 <label>Shift<input id="shift" value="Morning"></label>
                 <label>Status<select id="status"><option>draft</option><option>weighed-in</option><option>weighed-out</option><option>completed</option><option>voided</option><option>on-hold</option></select></label>
+
+                <div class="form-section">Notes &amp; approvals</div>
                 <label>Remarks<textarea></textarea></label>
                 <label>Override reason<textarea id="overrideReason" readonly placeholder="Supervisor approval required"></textarea></label>
                 <label>Attachments/images<input placeholder="camera://entry-001.jpg"></label>
               </form>
-              <p>
+
+              <div class="action-row action-wrap">
                 <button id="storedTareBtn" class="btn">Use stored tare</button>
                 <button id="overrideBtn" class="btn warn">Manual override</button>
                 <button id="saveTicket" class="btn primary">POST /tickets</button>
                 <button id="completeTicket" class="btn">POST /tickets/:id/complete</button>
-              </p>
+              </div>
             </article>
           </div>
         </section>
 
         <section class="screen" id="detail">
           <article class="card">
-            <h2 id="detailNo">Ticket #WB-0001</h2>
-            <span id="detailStatus" class="badge">draft</span>
+            <div class="card-head">
+              <div>
+                <p class="eyebrow">Ticket summary</p>
+                <h2 id="detailNo">Ticket #WB-0001</h2>
+              </div>
+              <span id="detailStatus" class="badge">draft</span>
+            </div>
             <div class="kpis">
-              <article class="card"><h3>Gross</h3><strong id="detailGross">0 kg</strong></article>
-              <article class="card"><h3>Tare</h3><strong id="detailTare">0 kg</strong></article>
-              <article class="card"><h3>Net</h3><strong id="detailNet">0 kg</strong></article>
+              <article class="card stat-card"><h3>Gross</h3><strong id="detailGross">0 kg</strong></article>
+              <article class="card stat-card"><h3>Tare</h3><strong id="detailTare">0 kg</strong></article>
+              <article class="card stat-card"><h3>Net</h3><strong id="detailNet">0 kg</strong></article>
             </div>
             <div class="grid3">
               <article class="card"><h3>Vehicle/Driver</h3><p id="detailVehicle"></p></article>
@@ -152,19 +288,133 @@
               <article class="card duty"><h3>Duty Snapshot</h3><p id="dutySnapshot"></p></article>
             </div>
             <div class="grid2">
-              <article><h3>Audit Trail</h3><ul id="auditTrail" class="timeline"></ul></article>
-              <article><h3>Overrides</h3><ul id="overrideTrail" class="timeline"></ul><h3>Attachments</h3><div class="camera">Ticket images/signatures</div></article>
+              <article class="card"><h3>Audit Trail</h3><ul id="auditTrail" class="timeline"></ul></article>
+              <article class="card"><h3>Overrides</h3><ul id="overrideTrail" class="timeline"></ul><h3>Attachments</h3><div class="camera">Ticket images/signatures</div></article>
             </div>
           </article>
         </section>
 
-        <section class="screen" id="vehicles"><article class="card"><h2>Vehicle Registry</h2><input id="vehicleSearch" placeholder="Search reg/type/tare/compliance"><div class="table"><table><thead><tr><th>Reg</th><th>Type</th><th>Tare</th><th>Verified</th><th>Compliance</th></tr></thead><tbody id="vehicleRows"></tbody></table></div></article></section>
-        <section class="screen" id="search"><article class="card"><h2>Search &amp; Investigations</h2><div class="grid4"><input id="fTicket" placeholder="Ticket"><input id="fVehicle" placeholder="Vehicle"><input id="fDriver" placeholder="Driver"><input id="fCustomer" placeholder="Customer"><input id="fProduct" placeholder="Product"><input id="fOperator" placeholder="Operator"><select id="fShift"><option value="">Any shift</option><option>Morning</option><option>Afternoon</option><option>Night</option></select><select id="fStatus"><option value="">Any status</option><option>draft</option><option>weighed-in</option><option>weighed-out</option><option>completed</option><option>voided</option><option>on-hold</option></select></div><p><button id="runSearch" class="btn primary">Search</button><button id="clearSearch" class="btn">Clear</button><button id="exportSearch" class="btn">Export</button></p><div id="chips"></div><div class="table"><table><thead><tr><th>Ticket</th><th>Vehicle</th><th>Driver</th><th>Customer</th><th>Product</th><th>Operator</th><th>Shift</th><th>Status</th><th>Time</th></tr></thead><tbody id="searchRows"></tbody></table></div><p id="searchEmpty" class="hidden">No records found.</p></article></section>
-        <section class="screen" id="history"><article class="card"><h2>Vehicle History</h2><ul id="vehicleHistory" class="timeline"></ul></article></section>
-        <section class="screen" id="duty"><article class="card"><h2>Duty Roster</h2><button id="newHandover" class="btn">POST /shift-handover</button><div class="table"><table><thead><tr><th>Shift</th><th>Bridge</th><th>Operator</th><th>Supervisor</th><th>Session</th><th>Status</th></tr></thead><tbody id="dutyRows"></tbody></table></div></article></section>
-        <section class="screen" id="reports"><article class="card"><h2>Reports</h2><div id="reportCards" class="grid3"></div></article></section>
-        <section class="screen" id="exceptions"><article class="card"><h2>Exceptions Queue</h2><div class="table"><table><thead><tr><th>Ticket</th><th>Issue</th><th>Raised by</th><th>Reason</th><th>Status</th><th>Action</th></tr></thead><tbody id="exceptionRows"></tbody></table></div></article></section>
-        <section class="screen" id="print"><article class="card"><h2>Print Ticket View</h2><p><b>Ticket:</b> <span id="printNo"></span></p><p><b>Vehicle:</b> <span id="printVehicle"></span></p><p><b>Weights:</b> <span id="printWeights"></span></p><button class="btn" onclick="window.print()">Print / Reprint</button><button class="btn">Export PDF (placeholder)</button></article></section>
+        <section class="screen" id="vehicles">
+          <article class="card">
+            <div class="card-head">
+              <div>
+                <p class="eyebrow">Vehicle lookup</p>
+                <h2>Vehicle Registry</h2>
+              </div>
+              <div class="legend-group">
+                <span class="vehicle-tag truck">🚚 Trucks</span>
+                <span class="vehicle-tag trailer">🚛 Trailers</span>
+                <span class="vehicle-tag tanker">🛢️ Tankers</span>
+              </div>
+            </div>
+            <div class="toolbar">
+              <input id="vehicleSearch" placeholder="Search reg/type/tare/compliance">
+              <p class="support-note">Type and compliance information is kept visible to help operators identify special handling quickly.</p>
+            </div>
+            <div class="table"><table><thead><tr><th>Reg</th><th>Type</th><th>Tare</th><th>Verified</th><th>Compliance</th></tr></thead><tbody id="vehicleRows"></tbody></table></div>
+          </article>
+        </section>
+
+        <section class="screen" id="search">
+          <article class="card">
+            <div class="card-head">
+              <div>
+                <p class="eyebrow">Investigations</p>
+                <h2>Search &amp; Investigations</h2>
+              </div>
+              <span class="badge">Multi-field filter</span>
+            </div>
+            <div class="grid4">
+              <input id="fTicket" placeholder="Ticket">
+              <input id="fVehicle" placeholder="Vehicle">
+              <input id="fDriver" placeholder="Driver">
+              <input id="fCustomer" placeholder="Customer">
+              <input id="fProduct" placeholder="Product">
+              <input id="fOperator" placeholder="Operator">
+              <select id="fShift"><option value="">Any shift</option><option>Morning</option><option>Afternoon</option><option>Night</option></select>
+              <select id="fStatus"><option value="">Any status</option><option>draft</option><option>weighed-in</option><option>weighed-out</option><option>completed</option><option>voided</option><option>on-hold</option></select>
+            </div>
+            <div class="action-row action-wrap">
+              <button id="runSearch" class="btn primary">Search</button>
+              <button id="clearSearch" class="btn">Clear</button>
+              <button id="exportSearch" class="btn">Export</button>
+            </div>
+            <div id="chips" class="chip-row"></div>
+            <div class="table"><table><thead><tr><th>Ticket</th><th>Vehicle</th><th>Driver</th><th>Customer</th><th>Product</th><th>Operator</th><th>Shift</th><th>Status</th><th>Time</th></tr></thead><tbody id="searchRows"></tbody></table></div>
+            <p id="searchEmpty" class="hidden empty-state">No records found.</p>
+          </article>
+        </section>
+
+        <section class="screen" id="history">
+          <article class="card">
+            <div class="card-head">
+              <div>
+                <p class="eyebrow">Vehicle movement</p>
+                <h2>Vehicle History</h2>
+              </div>
+            </div>
+            <ul id="vehicleHistory" class="timeline"></ul>
+          </article>
+        </section>
+
+        <section class="screen" id="duty">
+          <article class="card">
+            <div class="card-head">
+              <div>
+                <p class="eyebrow">Shift continuity</p>
+                <h2>Duty Roster</h2>
+              </div>
+              <button id="newHandover" class="btn">POST /shift-handover</button>
+            </div>
+            <div class="table"><table><thead><tr><th>Shift</th><th>Bridge</th><th>Operator</th><th>Supervisor</th><th>Session</th><th>Status</th></tr></thead><tbody id="dutyRows"></tbody></table></div>
+          </article>
+        </section>
+
+        <section class="screen" id="reports">
+          <article class="card">
+            <div class="card-head">
+              <div>
+                <p class="eyebrow">Reporting</p>
+                <h2>Reports</h2>
+              </div>
+            </div>
+            <div id="reportCards" class="grid3"></div>
+          </article>
+        </section>
+
+        <section class="screen" id="exceptions">
+          <article class="card">
+            <div class="card-head">
+              <div>
+                <p class="eyebrow">Attention required</p>
+                <h2>Exceptions Queue</h2>
+              </div>
+              <span class="badge danger">Supervisor review</span>
+            </div>
+            <div class="table"><table><thead><tr><th>Ticket</th><th>Issue</th><th>Raised by</th><th>Reason</th><th>Status</th><th>Action</th></tr></thead><tbody id="exceptionRows"></tbody></table></div>
+          </article>
+        </section>
+
+        <section class="screen" id="print">
+          <article class="card">
+            <div class="card-head">
+              <div>
+                <p class="eyebrow">Output</p>
+                <h2>Print Ticket View</h2>
+              </div>
+              <span class="badge">Ready to print</span>
+            </div>
+            <div class="print-summary">
+              <p><b>Ticket:</b> <span id="printNo"></span></p>
+              <p><b>Vehicle:</b> <span id="printVehicle"></span></p>
+              <p><b>Weights:</b> <span id="printWeights"></span></p>
+            </div>
+            <div class="action-row action-wrap">
+              <button class="btn" onclick="window.print()">Print / Reprint</button>
+              <button class="btn">Export PDF (placeholder)</button>
+            </div>
+          </article>
+        </section>
       </main>
     </div>
   </div>
@@ -176,18 +426,23 @@
       <label>Supervisor<input id="ovSupervisor"></label>
       <label>PIN<input id="ovPin" type="password"></label>
       <p id="ovError" class="error hidden"></p>
-      <button id="ovCancel" class="btn">Cancel</button>
-      <button id="ovApprove" class="btn primary">Approve override</button>
+      <div class="action-row">
+        <button id="ovCancel" class="btn">Cancel</button>
+        <button id="ovApprove" class="btn primary">Approve override</button>
+      </div>
     </article>
   </div>
+
   <div class="modal hidden" id="handoverModal">
     <article class="card">
       <h3>Shift Handover</h3>
       <label>From<input id="hFrom" value="Operator A"></label>
       <label>To<input id="hTo" placeholder="Operator B"></label>
       <label>Note<textarea id="hNote"></textarea></label>
-      <button id="hCancel" class="btn">Cancel</button>
-      <button id="hConfirm" class="btn primary">Confirm handover</button>
+      <div class="action-row">
+        <button id="hCancel" class="btn">Cancel</button>
+        <button id="hConfirm" class="btn primary">Confirm handover</button>
+      </div>
     </article>
   </div>
 
