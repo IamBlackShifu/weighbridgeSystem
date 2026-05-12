@@ -474,8 +474,8 @@ tbody tr:hover{background:#f8fbfd}
   position:fixed;
   right:18px;
   bottom:18px;
-  max-width:min(360px, calc(100vw - 36px));
-  background:#132531;
+  max-width:min(360px,calc(100vw - 36px));
+  background:#0b1822;
   color:#fff;
   padding:14px 16px;
   border-radius:16px;
