@@ -8,6 +8,7 @@
   --accent:#0f6d8a;
   --accent-strong:#0a5273;
   --accent-soft:#dff2f7;
+  --toast-bg:#0b1822;
   --line:#d8e2ea;
   --line-strong:#bfd0dc;
   --shadow:0 18px 40px rgba(15,36,54,.08);
@@ -475,7 +476,7 @@ tbody tr:hover{background:#f8fbfd}
   right:18px;
   bottom:18px;
   max-width:min(360px,calc(100vw - 36px));
-  background:#0b1822;
+  background:var(--toast-bg);
   color:#fff;
   padding:14px 16px;
   border-radius:16px;
