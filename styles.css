@@ -97,6 +97,7 @@ button,input,select,textarea{font:inherit}
 }
 
 .nav-icon{width:22px;text-align:center;flex:0 0 22px}
+.btn-icon{display:inline-flex;align-items:center;justify-content:center}
 
 .nav:hover,
 .nav.active{
@@ -436,7 +437,7 @@ tbody tr:hover{background:#f8fbfd}
 .camera{
   display:grid;
   place-items:center;
-  min-height:160px;
+  min-height:140px;
   background:linear-gradient(135deg, #f6fbfd, #eef5f8);
   border:2px dashed var(--line-strong);
   border-radius:18px;
@@ -505,4 +506,5 @@ tbody tr:hover{background:#f8fbfd}
   .badge,.vehicle-tag{width:100%;justify-content:center}
   .status-item,.card-head,.screen-head{align-items:stretch}
   .weight{font-size:2.4rem}
+  .camera{min-height:120px}
 }
