@@ -98,6 +98,16 @@ button,input,select,textarea{font:inherit}
 
 .nav-icon{width:22px;text-align:center;flex:0 0 22px}
 .btn-icon{display:inline-flex;align-items:center;justify-content:center}
+.icon-svg{
+  width:18px;
+  height:18px;
+  display:block;
+  stroke:currentColor;
+  stroke-width:1.8;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  fill:none;
+}
 
 .nav:hover,
 .nav.active{
@@ -306,6 +316,7 @@ main{padding:24px}
 .btn.warn{background:var(--warn-soft);border-color:#efca8f;color:var(--warn)}
 .btn.danger{background:var(--danger-soft);border-color:#efb5b1;color:var(--danger)}
 .btn:disabled{opacity:.5;cursor:not-allowed;box-shadow:none;transform:none}
+.btn span,.vehicle-tag span{display:inline-flex;align-items:center}
 
 .action-row{
   display:flex;
@@ -473,6 +484,19 @@ tbody tr:hover{background:#f8fbfd}
 }
 
 .error{color:var(--danger);font-weight:700}
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,
+  *::before,
+  *::after{
+    animation:none!important;
+    transition:none!important;
+  }
+  .btn:hover,
+  .nav:hover,
+  .nav.active{transform:none}
+}
 
 @media (max-width:1200px){
   .kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
